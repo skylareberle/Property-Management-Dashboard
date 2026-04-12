@@ -165,10 +165,6 @@
         </div>
         <form @submit.prevent="handleIncomeSubmit" class="space-y-4">
           <div class="space-y-1">
-            <label class="text-sm font-medium text-slate-700">Income ID</label>
-            <input v-model.number="newIncome.income_id" type="number" required class="w-full rounded-lg border border-slate-200 px-3 py-2" />
-          </div>
-          <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Amount</label>
             <input v-model.number="newIncome.amount" type="number" step="0.01" required class="w-full rounded-lg border border-slate-200 px-3 py-2" />
           </div>
@@ -198,10 +194,6 @@
           </button>
         </div>
         <form @submit.prevent="handleExpenseSubmit" class="space-y-4">
-          <div class="space-y-1">
-            <label class="text-sm font-medium text-slate-700">Expense ID</label>
-            <input v-model.number="newExpense.expense_id" type="number" required class="w-full rounded-lg border border-slate-200 px-3 py-2" />
-          </div>
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Amount</label>
             <input v-model.number="newExpense.amount" type="number" step="0.01" required class="w-full rounded-lg border border-slate-200 px-3 py-2" />
@@ -293,6 +285,10 @@ const fetchData = async () => {
 const handleIncomeSubmit = async () => {
   submitting.value = true;
   try {
+    // Auto-generate income_id
+    const maxId = income.value.reduce((max, item) => Math.max(max, item.income_id), 0);
+    newIncome.value.income_id = maxId + 1;
+
     await incomeService.create(propertyId, newIncome.value);
     await fetchData();
     showIncomeForm.value = false;
@@ -308,6 +304,10 @@ const handleIncomeSubmit = async () => {
 const handleExpenseSubmit = async () => {
   submitting.value = true;
   try {
+    // Auto-generate expense_id
+    const maxId = expenses.value.reduce((max, item) => Math.max(max, item.expense_id), 0);
+    newExpense.value.expense_id = maxId + 1;
+
     await expenseService.create(propertyId, newExpense.value);
     await fetchData();
     showExpenseForm.value = false;

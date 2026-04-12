@@ -94,15 +94,9 @@
             </select>
           </div>
 
-          <div class="grid grid-cols-2 gap-4">
-            <div class="space-y-1">
-              <label class="text-sm font-medium text-slate-700">Expense ID</label>
-              <input v-model.number="newExpense.expense_id" type="number" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
-            </div>
-            <div class="space-y-1">
-              <label class="text-sm font-medium text-slate-700">Amount</label>
-              <input v-model.number="newExpense.amount" type="number" step="0.01" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
-            </div>
+          <div class="space-y-1">
+            <label class="text-sm font-medium text-slate-700">Amount</label>
+            <input v-model.number="newExpense.amount" type="number" step="0.01" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
           </div>
 
           <div class="grid grid-cols-2 gap-4">
@@ -214,6 +208,10 @@ const handleSubmit = async () => {
   submitting.value = true;
   formError.value = null;
   try {
+    // Auto-generate expense_id
+    const maxId = allExpenses.value.reduce((max, item) => Math.max(max, item.expense_id), 0);
+    newExpense.value.expense_id = maxId + 1;
+
     await expenseService.create(selectedPropertyId.value, newExpense.value);
     await fetchAllExpenses();
     showForm.value = false;
