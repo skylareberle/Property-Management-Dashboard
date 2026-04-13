@@ -6,7 +6,7 @@
     </header>
 
     <div v-if="loading" class="flex h-64 items-center justify-center">
-      <div class="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent"></div>
+      <div class="h-8 w-8 animate-spin rounded-full border-4 border-purdue-gold border-t-transparent"></div>
     </div>
 
     <div v-else-if="error" class="rounded-xl border border-red-200 bg-red-50 p-6 text-red-700">
@@ -23,17 +23,17 @@
       <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
         <div class="flex items-center justify-between">
           <p class="text-sm font-medium text-slate-500">Total Properties</p>
-          <Building class="h-5 w-5 text-indigo-600" />
+          <Building class="h-5 w-5 text-purdue-gold" />
         </div>
-        <p class="mt-2 text-3xl font-bold text-slate-900">{{ properties.length }}</p>
+        <p class="mt-2 text-3xl font-bold text-purdue-black">{{ properties.length }}</p>
       </div>
 
       <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
         <div class="flex items-center justify-between">
           <p class="text-sm font-medium text-slate-500">Total Tenants</p>
-          <Users class="h-5 w-5 text-indigo-600" />
+          <Users class="h-5 w-5 text-purdue-gold" />
         </div>
-        <p class="mt-2 text-3xl font-bold text-slate-900">{{ tenants.length }}</p>
+        <p class="mt-2 text-3xl font-bold text-purdue-black">{{ tenants.length }}</p>
       </div>
 
       <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -41,15 +41,15 @@
           <p class="text-sm font-medium text-slate-500">Monthly Revenue</p>
           <DollarSign class="h-5 w-5 text-emerald-600" />
         </div>
-        <p class="mt-2 text-3xl font-bold text-slate-900">${{ totalMonthlyRent.toLocaleString() }}</p>
+        <p class="mt-2 text-3xl font-bold text-purdue-black">${{ totalMonthlyRent.toLocaleString() }}</p>
       </div>
 
       <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
         <div class="flex items-center justify-between">
           <p class="text-sm font-medium text-slate-500">Occupancy Rate</p>
-          <PieChart class="h-5 w-5 text-indigo-600" />
+          <PieChart class="h-5 w-5 text-purdue-gold" />
         </div>
-        <p class="mt-2 text-3xl font-bold text-slate-900">{{ occupancyRate }}%</p>
+        <p class="mt-2 text-3xl font-bold text-purdue-black">{{ occupancyRate }}%</p>
       </div>
     </div>
 

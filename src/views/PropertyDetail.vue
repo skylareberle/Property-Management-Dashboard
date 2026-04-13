@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-8">
     <div v-if="loading" class="flex h-64 items-center justify-center">
-      <div class="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent"></div>
+      <div class="h-8 w-8 animate-spin rounded-full border-4 border-purdue-gold border-t-transparent"></div>
     </div>
 
     <div v-else-if="error" class="rounded-xl border border-red-200 bg-red-50 p-6 text-red-700 text-center">
@@ -12,24 +12,24 @@
     <template v-else-if="property">
       <header class="flex items-start justify-between">
         <div>
-          <router-link to="/properties" class="mb-4 inline-flex items-center gap-1 text-sm font-medium text-slate-500 hover:text-indigo-600">
+          <router-link to="/properties" class="mb-4 inline-flex items-center gap-1 text-sm font-medium text-slate-500 hover:text-purdue-gold">
             <ChevronLeft class="h-4 w-4" />
             Back to Properties
           </router-link>
-          <h1 class="text-3xl font-bold tracking-tight text-slate-900">{{ property.name }}</h1>
+          <h1 class="text-3xl font-bold tracking-tight text-purdue-black">{{ property.name }}</h1>
           <p class="mt-2 text-slate-600">{{ property.address }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</p>
         </div>
         <div class="flex gap-3">
           <button 
             @click="showIncomeForm = true"
-            class="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500"
+            class="inline-flex items-center gap-2 rounded-lg bg-purdue-black px-4 py-2 text-sm font-semibold text-purdue-white shadow-sm hover:bg-purdue-grey"
           >
             <Plus class="h-4 w-4" />
             Add Income
           </button>
           <button 
             @click="showExpenseForm = true"
-            class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
+            class="inline-flex items-center gap-2 rounded-lg bg-purdue-black px-4 py-2 text-sm font-semibold text-purdue-white shadow-sm hover:bg-purdue-grey"
           >
             <Plus class="h-4 w-4" />
             Add Expense
@@ -73,10 +73,10 @@
             </div>
             <p class="mt-2 text-3xl font-bold text-slate-900">${{ totalExpenses.toLocaleString() }}</p>
           </div>
-          <div class="sm:col-span-2 rounded-2xl border border-slate-200 bg-indigo-600 p-6 shadow-sm text-white">
+          <div class="sm:col-span-2 rounded-2xl border border-purdue-black bg-purdue-black p-6 shadow-sm text-purdue-white">
             <div class="flex items-center justify-between">
-              <p class="text-sm font-medium text-indigo-100">Net Cash Flow</p>
-              <DollarSign class="h-5 w-5 text-indigo-200" />
+              <p class="text-sm font-medium text-purdue-grey">Net Cash Flow</p>
+              <DollarSign class="h-5 w-5 text-purdue-gold" />
             </div>
             <p class="mt-2 text-3xl font-bold">${{ (totalIncome - totalExpenses).toLocaleString() }}</p>
           </div>
@@ -133,7 +133,7 @@
                 <tr v-for="exp in expenses" :key="exp.expense_id" class="hover:bg-slate-50">
                   <td class="px-6 py-4 text-slate-600">{{ exp.date }}</td>
                   <td class="px-6 py-4">
-                    <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-600">
+                    <span class="inline-flex items-center rounded-md bg-purdue-gold/10 px-2 py-1 text-xs font-medium text-purdue-black">
                       {{ exp.category }}
                     </span>
                   </td>
@@ -166,19 +166,19 @@
         <form @submit.prevent="handleIncomeSubmit" class="space-y-4">
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Amount</label>
-            <input v-model.number="newIncome.amount" type="number" step="0.01" required class="w-full rounded-lg border border-slate-200 px-3 py-2" />
+            <input v-model.number="newIncome.amount" type="number" step="0.01" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
           </div>
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Date</label>
-            <input v-model="newIncome.date" type="date" required class="w-full rounded-lg border border-slate-200 px-3 py-2" />
+            <input v-model="newIncome.date" type="date" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
           </div>
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Description</label>
-            <textarea v-model="newIncome.description" class="w-full rounded-lg border border-slate-200 px-3 py-2"></textarea>
+            <textarea v-model="newIncome.description" class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold"></textarea>
           </div>
           <div class="flex gap-3 pt-4">
             <button type="button" @click="showIncomeForm = false" class="flex-1 rounded-lg border border-slate-200 py-2 text-sm font-semibold">Cancel</button>
-            <button type="submit" :disabled="submitting" class="flex-1 rounded-lg bg-emerald-600 py-2 text-sm font-semibold text-white">Save</button>
+            <button type="submit" :disabled="submitting" class="flex-1 rounded-lg bg-purdue-black py-2 text-sm font-semibold text-purdue-white hover:bg-purdue-grey">Save</button>
           </div>
         </form>
       </div>
@@ -196,27 +196,27 @@
         <form @submit.prevent="handleExpenseSubmit" class="space-y-4">
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Amount</label>
-            <input v-model.number="newExpense.amount" type="number" step="0.01" required class="w-full rounded-lg border border-slate-200 px-3 py-2" />
+            <input v-model.number="newExpense.amount" type="number" step="0.01" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
           </div>
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Date</label>
-            <input v-model="newExpense.date" type="date" required class="w-full rounded-lg border border-slate-200 px-3 py-2" />
+            <input v-model="newExpense.date" type="date" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
           </div>
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Category</label>
-            <input v-model="newExpense.category" type="text" required class="w-full rounded-lg border border-slate-200 px-3 py-2" />
+            <input v-model="newExpense.category" type="text" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
           </div>
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Vendor</label>
-            <input v-model="newExpense.vendor" type="text" class="w-full rounded-lg border border-slate-200 px-3 py-2" />
+            <input v-model="newExpense.vendor" type="text" class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
           </div>
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Description</label>
-            <textarea v-model="newExpense.description" class="w-full rounded-lg border border-slate-200 px-3 py-2"></textarea>
+            <textarea v-model="newExpense.description" class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold"></textarea>
           </div>
           <div class="flex gap-3 pt-4">
             <button type="button" @click="showExpenseForm = false" class="flex-1 rounded-lg border border-slate-200 py-2 text-sm font-semibold">Cancel</button>
-            <button type="submit" :disabled="submitting" class="flex-1 rounded-lg bg-indigo-600 py-2 text-sm font-semibold text-white">Save</button>
+            <button type="submit" :disabled="submitting" class="flex-1 rounded-lg bg-purdue-black py-2 text-sm font-semibold text-purdue-white hover:bg-purdue-grey">Save</button>
           </div>
         </form>
       </div>

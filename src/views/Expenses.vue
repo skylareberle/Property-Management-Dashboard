@@ -7,7 +7,7 @@
       </div>
       <button 
         @click="showForm = true"
-        class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-indigo-500"
+        class="inline-flex items-center gap-2 rounded-lg bg-purdue-black px-4 py-2 text-sm font-semibold text-purdue-white shadow-sm transition-all hover:bg-purdue-grey"
       >
         <Plus class="h-4 w-4" />
         Add Expense
@@ -15,7 +15,7 @@
     </header>
 
     <div v-if="loading" class="flex h-64 items-center justify-center">
-      <div class="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent"></div>
+      <div class="h-8 w-8 animate-spin rounded-full border-4 border-purdue-gold border-t-transparent"></div>
     </div>
 
     <div v-else-if="error" class="rounded-xl border border-red-200 bg-red-50 p-6 text-red-700 text-center">
@@ -86,7 +86,7 @@
         <form @submit.prevent="handleSubmit" class="space-y-4">
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Property</label>
-            <select v-model="selectedPropertyId" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500">
+            <select v-model="selectedPropertyId" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold">
               <option value="" disabled>Select a property</option>
               <option v-for="prop in properties" :key="prop.property_id" :value="prop.property_id">
                 {{ prop.name }}
@@ -96,28 +96,28 @@
 
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Amount</label>
-            <input v-model.number="newExpense.amount" type="number" step="0.01" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+            <input v-model.number="newExpense.amount" type="number" step="0.01" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
           </div>
 
           <div class="grid grid-cols-2 gap-4">
             <div class="space-y-1">
               <label class="text-sm font-medium text-slate-700">Date</label>
-              <input v-model="newExpense.date" type="date" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+              <input v-model="newExpense.date" type="date" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
             </div>
             <div class="space-y-1">
               <label class="text-sm font-medium text-slate-700">Category</label>
-              <input v-model="newExpense.category" type="text" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+              <input v-model="newExpense.category" type="text" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
             </div>
           </div>
 
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Vendor</label>
-            <input v-model="newExpense.vendor" type="text" class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+            <input v-model="newExpense.vendor" type="text" class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
           </div>
 
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Description</label>
-            <textarea v-model="newExpense.description" rows="3" class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"></textarea>
+            <textarea v-model="newExpense.description" rows="3" class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold"></textarea>
           </div>
 
           <div class="flex gap-3 pt-4">
@@ -131,7 +131,7 @@
             <button 
               type="submit"
               :disabled="submitting"
-              class="flex-1 rounded-lg bg-indigo-600 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 disabled:opacity-50"
+              class="flex-1 rounded-lg bg-purdue-black py-2 text-sm font-semibold text-purdue-white shadow-sm hover:bg-purdue-grey disabled:opacity-50"
             >
               {{ submitting ? 'Saving...' : 'Create Record' }}
             </button>

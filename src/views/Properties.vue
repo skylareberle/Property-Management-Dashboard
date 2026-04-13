@@ -7,7 +7,7 @@
       </div>
       <button 
         @click="showForm = true"
-        class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        class="inline-flex items-center gap-2 rounded-lg bg-purdue-black px-4 py-2 text-sm font-semibold text-purdue-white shadow-sm transition-all hover:bg-purdue-grey focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purdue-black"
       >
         <Plus class="h-4 w-4" />
         Add Property
@@ -15,7 +15,7 @@
     </header>
 
     <div v-if="loading" class="flex h-64 items-center justify-center">
-      <div class="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent"></div>
+      <div class="h-8 w-8 animate-spin rounded-full border-4 border-purdue-gold border-t-transparent"></div>
     </div>
 
     <div v-else-if="error" class="rounded-xl border border-red-200 bg-red-50 p-6 text-red-700 text-center">
@@ -38,7 +38,7 @@
               <h3 class="text-lg font-bold text-slate-900">{{ prop.name }}</h3>
               <p class="text-sm text-slate-500">{{ prop.address }}, {{ prop.city }}</p>
             </div>
-            <span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10">
+            <span class="inline-flex items-center rounded-md bg-purdue-gold/10 px-2 py-1 text-xs font-medium text-purdue-black ring-1 ring-inset ring-purdue-gold/20">
               {{ prop.property_type }}
             </span>
           </div>
@@ -81,7 +81,7 @@
         <p class="mt-1 text-sm text-slate-500">Get started by creating a new property.</p>
         <button 
           @click="showForm = true"
-          class="mt-6 text-sm font-semibold text-indigo-600 hover:text-indigo-500"
+          class="mt-6 text-sm font-semibold text-purdue-black hover:text-purdue-grey"
         >
           Add your first property
         </button>
@@ -101,33 +101,33 @@
         <form @submit.prevent="handleSubmit" class="space-y-4">
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Name</label>
-            <input v-model="newProp.name" type="text" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+            <input v-model="newProp.name" type="text" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
           </div>
 
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Address</label>
-            <input v-model="newProp.address" type="text" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+            <input v-model="newProp.address" type="text" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
           </div>
 
           <div class="grid grid-cols-3 gap-4">
             <div class="space-y-1">
               <label class="text-sm font-medium text-slate-700">City</label>
-              <input v-model="newProp.city" type="text" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+              <input v-model="newProp.city" type="text" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
             </div>
             <div class="space-y-1">
               <label class="text-sm font-medium text-slate-700">State</label>
-              <input v-model="newProp.state" type="text" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+              <input v-model="newProp.state" type="text" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
             </div>
             <div class="space-y-1">
               <label class="text-sm font-medium text-slate-700">Postal Code</label>
-              <input v-model="newProp.postal_code" type="text" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+              <input v-model="newProp.postal_code" type="text" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
             </div>
           </div>
 
           <div class="grid grid-cols-2 gap-4">
             <div class="space-y-1">
               <label class="text-sm font-medium text-slate-700">Type</label>
-              <select v-model="newProp.property_type" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500">
+              <select v-model="newProp.property_type" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold">
                 <option value="Single Family">Single Family</option>
                 <option value="Multi Family">Multi Family</option>
                 <option value="Apartment">Apartment</option>
@@ -136,13 +136,13 @@
             </div>
             <div class="space-y-1">
               <label class="text-sm font-medium text-slate-700">Monthly Rent</label>
-              <input v-model.number="newProp.monthly_rent" type="number" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+              <input v-model.number="newProp.monthly_rent" type="number" required class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
             </div>
           </div>
 
           <div class="space-y-1">
             <label class="text-sm font-medium text-slate-700">Tenant Name (Optional)</label>
-            <input v-model="newProp.tenant_name" type="text" class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+            <input v-model="newProp.tenant_name" type="text" class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-purdue-gold focus:ring-1 focus:ring-purdue-gold" />
           </div>
 
           <div class="flex gap-3 pt-4">
@@ -156,7 +156,7 @@
             <button 
               type="submit"
               :disabled="submitting"
-              class="flex-1 rounded-lg bg-indigo-600 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 disabled:opacity-50"
+              class="flex-1 rounded-lg bg-purdue-black py-2 text-sm font-semibold text-purdue-white shadow-sm hover:bg-purdue-grey disabled:opacity-50"
             >
               {{ submitting ? 'Saving...' : 'Create Property' }}
             </button>

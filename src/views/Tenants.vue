@@ -6,7 +6,7 @@
     </header>
 
     <div v-if="loading" class="flex h-64 items-center justify-center">
-      <div class="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent"></div>
+      <div class="h-8 w-8 animate-spin rounded-full border-4 border-purdue-gold border-t-transparent"></div>
     </div>
 
     <div v-else-if="error" class="rounded-xl border border-red-200 bg-red-50 p-6 text-red-700 text-center">
@@ -27,7 +27,7 @@
           <tr v-for="tenant in tenants" :key="tenant.tenant_name" class="hover:bg-slate-50 transition-colors">
             <td class="px-6 py-4">
               <div class="flex items-center gap-3">
-                <div class="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-100 text-indigo-600">
+                <div class="flex h-8 w-8 items-center justify-center rounded-full bg-purdue-gold/10 text-purdue-black">
                   <User class="h-4 w-4" />
                 </div>
                 <span class="font-medium text-slate-900">{{ tenant.tenant_name }}</span>
@@ -35,7 +35,7 @@
             </td>
             <td class="px-6 py-4 text-slate-600">{{ tenant.property_name }}</td>
             <td class="px-6 py-4 text-right">
-              <button class="text-sm font-semibold text-indigo-600 hover:text-indigo-500">
+              <button class="text-sm font-semibold text-purdue-black hover:text-purdue-grey">
                 View Lease
               </button>
             </td>

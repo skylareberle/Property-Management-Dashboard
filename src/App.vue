@@ -1,47 +1,47 @@
 <template>
   <div class="min-h-screen bg-slate-50 font-sans text-slate-900">
-    <nav class="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
+    <nav class="sticky top-0 z-50 border-b border-purdue-gold/20 bg-purdue-black shadow-lg">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center gap-2">
-            <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-white">
+            <div class="flex h-8 w-8 items-center justify-center rounded bg-purdue-gold text-purdue-black">
               <Building2 class="h-5 w-5" />
             </div>
-            <span class="text-xl font-bold tracking-tight text-slate-900">Property Management Database</span>
+            <span class="text-xl font-bold tracking-tight text-purdue-white">Property Management Database</span>
           </div>
           <div class="flex items-center gap-6">
             <router-link 
               to="/" 
-              class="text-sm font-medium text-slate-600 transition-colors hover:text-indigo-600"
-              active-class="text-indigo-600"
+              class="text-sm font-medium text-purdue-grey transition-colors hover:text-purdue-gold"
+              active-class="text-purdue-gold border-b-2 border-purdue-gold py-5"
             >
               Dashboard
             </router-link>
             <router-link 
               to="/properties" 
-              class="text-sm font-medium text-slate-600 transition-colors hover:text-indigo-600"
-              active-class="text-indigo-600"
+              class="text-sm font-medium text-purdue-grey transition-colors hover:text-purdue-gold"
+              active-class="text-purdue-gold border-b-2 border-purdue-gold py-5"
             >
               Properties
             </router-link>
             <router-link 
               to="/tenants" 
-              class="text-sm font-medium text-slate-600 transition-colors hover:text-indigo-600"
-              active-class="text-indigo-600"
+              class="text-sm font-medium text-purdue-grey transition-colors hover:text-purdue-gold"
+              active-class="text-purdue-gold border-b-2 border-purdue-gold py-5"
             >
               Tenants
             </router-link>
             <router-link 
               to="/income" 
-              class="text-sm font-medium text-slate-600 transition-colors hover:text-indigo-600"
-              active-class="text-indigo-600"
+              class="text-sm font-medium text-purdue-grey transition-colors hover:text-purdue-gold"
+              active-class="text-purdue-gold border-b-2 border-purdue-gold py-5"
             >
               Income
             </router-link>
             <router-link 
               to="/expenses" 
-              class="text-sm font-medium text-slate-600 transition-colors hover:text-indigo-600"
-              active-class="text-indigo-600"
+              class="text-sm font-medium text-purdue-grey transition-colors hover:text-purdue-gold"
+              active-class="text-purdue-gold border-b-2 border-purdue-gold py-5"
             >
               Expenses
             </router-link>
